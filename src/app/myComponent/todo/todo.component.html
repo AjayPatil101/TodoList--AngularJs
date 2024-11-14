@@ -1,0 +1,10 @@
+<app-todo-add (addTodo)="addTodo($event)"></app-todo-add>
+<h4>Todo List</h4>
+<div *ngIf="todos.length === 0; else todosList">
+    <p>No todos found</p>
+</div>
+<ng-template #todosList>
+<div *ngFor="let todo of todos">
+    <app-todo-item [todo]="todo" (deleteTodo)="deleteTodo($event)" (checkboxClick)="onCheckboxClick($event)"></app-todo-item>
+</div>
+</ng-template>
